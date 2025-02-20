@@ -18,7 +18,7 @@ function hideModal(categoryId) {
     modal.classList.add("hidden");
 }
 
-// Add event listeners to edit buttons to display respective update modals
+
 var editButtons = document.querySelectorAll(".edit-category");
 editButtons.forEach(function(button) {
     button.addEventListener("click", function() {
@@ -27,7 +27,6 @@ editButtons.forEach(function(button) {
     });
 });
 
-// Add event listeners to close buttons to hide update modals
 var closeButtons = document.querySelectorAll(".update-popup-close");
 closeButtons.forEach(function(button) {
     button.addEventListener("click", function() {

@@ -156,8 +156,8 @@
                                                                             <label for="slug"
                                                                                 class="block text-sm text-gray-500 ">Category
                                                                                 Slug: </label>
-                                                                            <textarea id="slug" name="slug" placeholder="Add Slug "
-                                                                                class="block mt-2 w-full placeholder-gray-500 rounded-lg border border-gray-700 bg-white px-5 py-2.5 text-subtle focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">{{ $category->description }}</textarea>
+                                                                            <input type="text" id="slug" name="slug" placeholder="Add Slug "
+                                                                                class="block mt-2 w-full placeholder-gray-500 rounded-lg border border-gray-700 bg-white px-5 py-2.5 text-subtle focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" value="{{ $category->description }}">
                                                                         </div>
 
                                                                         
@@ -226,8 +226,8 @@
                             <div class="mt-8">
                                 <label for="category-description"
                                     class="block text-sm text-gray-500 ">Category Description: </label>
-                                <textarea id="category-description" name="slug" placeholder="Add a Slug "
-                                    class="block mt-2 w-full placeholder-gray-500 rounded-lg border border-gray-700 bg-white px-5 py-2.5 text-subtle focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"></textarea>
+                                <input type="text" id="category-description" name="slug" placeholder="Add a Slug "
+                                    class="block mt-2 w-full placeholder-gray-500 rounded-lg border border-gray-700 bg-white px-5 py-2.5 text-subtle focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">
                             </div>
 
 
@@ -248,4 +248,5 @@
 @endsection
 @section('scripts')
     <script src="{{ mix('resources/js/categories.js') }}"></script>
+ 
 @endsection

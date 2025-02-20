@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 // use App\Models\Category;
@@ -26,4 +27,16 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+
+Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces.index');
+Route::get('/annonces/create', [AnnonceController::class, 'create'])->name('annonces.create');
+Route::post('/annonces', [AnnonceController::class, 'store'])->name('annonces.store');
+Route::delete('/annonce/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.destroy');
+// Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('annonces.update');
+Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('annonces.update');
+// Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('annonces.update');
+
+
+
 
