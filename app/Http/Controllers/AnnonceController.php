@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Annonce;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Http\Requests\StoreAnnonceRequest;
 use App\Http\Requests\UpdateAnnonceRequest;
 
@@ -21,6 +22,16 @@ class AnnonceController extends Controller
         // dd($annonces);
         return view('annonces.index', ['annonces' => $annonces, 'countAnnonces' => $countAnnonces, 'categories' => $categories]);
     }
+    public function annonces(){
+        $countAnnonces = Annonce::where('status', 'actif')->count();
+        $annonces = Annonce::where('status', 'actif')->paginate(10);
+        $categories = Category::all();
+
+        // dd($annonces);
+        return view('annonces', ['annonces' => $annonces, 'countAnnonces' => $countAnnonces, 'categories' => $categories]);
+    }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -49,9 +60,16 @@ class AnnonceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Annonce $annonce)
+    public function show(Annonce $annonce,$id)
     {
-        //
+        $annonce = Annonce::findOrFail($id);
+        $comments=Comment::join('users', 'comments.user_id', '=', 'users.id')
+            ->where('annonce_id', $annonce->id)
+            ->orderByDesc('created_at')
+            ->select('comments.*', 'users.name')
+            ->paginate(2);
+        $totalComments = $comments->count();
+        return view('annonce', compact('annonce','comments', 'totalComments'));
     }
 
     /**

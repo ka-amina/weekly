@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 // use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,12 @@ Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces.ind
 Route::get('/annonces/create', [AnnonceController::class, 'create'])->name('annonces.create');
 Route::post('/annonces', [AnnonceController::class, 'store'])->name('annonces.store');
 Route::delete('/annonce/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.destroy');
-// Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('annonces.update');
 Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('annonces.update');
-// Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('annonces.update');
+
+Route::get('/home',[AnnonceController::class,'annonces'])->name('annonces');
+Route::get('/annonce/{id}', [AnnonceController::class, 'show'])->name('annonce');
+
+Route::post('/announce/{id}', [CommentController::class, 'store'])->name('comments.store');
 
 
 
