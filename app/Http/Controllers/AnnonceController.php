@@ -75,9 +75,11 @@ class AnnonceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Annonce $annonce)
+  public function edit($id)
     {
-        //
+        $annonce = Annonce::findOrFail($id);
+        $categories = Category::all();
+        return view('annonces.edit', compact('annonce', 'categories'));
     }
 
     /**
@@ -86,8 +88,8 @@ class AnnonceController extends Controller
     public function update(UpdateAnnonceRequest $request, Annonce $annonce)
 {
     // Get validated data correctly
-    try {
-        dd($request->all());
+   
+        dd($request->all()); 
         $validatedData = $request->validated();
         
         // Handle image upload
@@ -108,9 +110,6 @@ class AnnonceController extends Controller
         // Update and redirect
         $annonce->update($validatedData);
         return redirect()->route('annonces.index')->with('success', 'Annonce updated successfully!');
-    } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'Update failed: ' . $e->getMessage())->withInput();
-    }
 }
     /**
      * Remove the specified resource from storage.

@@ -9,7 +9,7 @@
             </svg>
         </span>
         <div class="w-full">
-            <input type="text" id="searchForEvents" placeholder="Search for events" class="h-[35px] w-full outline-none border-none text-sm/12">
+            <input type="text" id="searchForEvents" placeholder="Search for annonces" class="h-[35px] w-full outline-none border-none text-sm/12">
         </div>
     </div>
     <div class="w-[1px] h-[38px] bg-[#B2B2B2]"></div>
@@ -20,7 +20,7 @@
             </svg>
         </span>
         <div class="w-full">
-            <input type="text" value="" id="cityValue" placeholder="Search for events" class="h-[35px] w-full outline-none border-none text-sm/12">
+            <input type="text" value="" id="cityValue" placeholder="Search for annonces" class="h-[35px] w-full outline-none border-none text-sm/12">
         </div>
         <div class="">
             <button type="submit" id="subSearchBtn" class="w-[38px] h-[38px] bg-[#f05537] rounded-full flex justify-center items-center cursor-pointer hover:bg-[#d63621]">

@@ -34,7 +34,9 @@ Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces.ind
 Route::get('/annonces/create', [AnnonceController::class, 'create'])->name('annonces.create');
 Route::post('/annonces', [AnnonceController::class, 'store'])->name('annonces.store');
 Route::delete('/annonce/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.destroy');
+Route::get('/annonces/{annonce}/edit', [AnnonceController::class, 'edit'])->name('annonces.edit');
 Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('annonces.update');
+
 
 Route::get('/home',[AnnonceController::class,'annonces'])->name('annonces');
 Route::get('/annonce/{id}', [AnnonceController::class, 'show'])->name('annonce');
